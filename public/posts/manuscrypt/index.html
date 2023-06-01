@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ManusCrypt | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="ManusCrypt Based on Malware Bazaar this sample is ManusCrypt. The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process. Based on the supplied sample this was downloaded from vk[.]com. The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.
+ First stage: Uses com objects to download and execute files Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory Third stage: XOR decrypt some memory and load functions via hashes.">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ManusCrypt" />
+<meta property="og:description" content="ManusCrypt Based on Malware Bazaar this sample is ManusCrypt. The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process. Based on the supplied sample this was downloaded from vk[.]com. The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.
+ First stage: Uses com objects to download and execute files Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory Third stage: XOR decrypt some memory and load functions via hashes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/manuscrypt/" />
+<meta property="article:published_time" content="2023-06-01T03:16:48+02:00" />
+<meta property="article:modified_time" content="2023-06-01T03:16:48+02:00" />
+<meta itemprop="name" content="ManusCrypt">
+<meta itemprop="description" content="ManusCrypt Based on Malware Bazaar this sample is ManusCrypt. The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process. Based on the supplied sample this was downloaded from vk[.]com. The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.
+ First stage: Uses com objects to download and execute files Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory Third stage: XOR decrypt some memory and load functions via hashes.">
+<meta itemprop="datePublished" content="2023-06-01T03:16:48&#43;02:00" />
+<meta itemprop="dateModified" content="2023-06-01T03:16:48&#43;02:00" />
+<meta itemprop="wordCount" content="1141">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ManusCrypt"/>
+<meta name="twitter:description" content="ManusCrypt Based on Malware Bazaar this sample is ManusCrypt. The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process. Based on the supplied sample this was downloaded from vk[.]com. The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.
+ First stage: Uses com objects to download and execute files Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory Third stage: XOR decrypt some memory and load functions via hashes."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ManusCrypt</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-06-01T03:16:48+02:00">June 1, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="manuscrypt">ManusCrypt</h1>
+<p>Based on Malware Bazaar this <a href="https://bazaar.abuse.ch/sample/c07e74c3367d7fada8618f94d8c73122f161ffe79eb4534bde78f57998b54813/">sample</a> is ManusCrypt.
+The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process.
+Based on the supplied sample this was downloaded from vk[.]com.
+The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.</p>
+<ul>
+<li>First stage: Uses com objects to download and execute files</li>
+<li>Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory</li>
+<li>Third stage: XOR decrypt some memory and load functions via hashes. Load other data into memory an rebuilds it as a PE file.</li>
+<li>Final stage: A trojan.</li>
+</ul>
+<p>The urls might still be working, as nearly three weeks after the upload of the sample, the first stage downloads were still available.</p>
+<p>Links to malshare for all files can be found at the end of this document.</p>
+<p>Potential future updates, more about the last stage, figuring out how exactly the loading from stage 3 to the last works and how exactly is the data extracted from the .html and .png file.</p>
+<h2 id="first-file-c07e74c3367d7fada8618f94d8c73122f161ffe79eb4534bde78f57998b54813">First file (c07e74c3367d7fada8618f94d8c73122f161ffe79eb4534bde78f57998b54813)</h2>
+<p>This file tries to run itself as admin after which it downloads two files via COM objects. Those files are stored in the users %temp% folder and executes the second stage dll via a COM object / WMI.</p>
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th>Downloaded file</th>
+<th>hash + link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hxxps://xv[.]yxzgamen[.]com/29.html</td>
+<td>db.dat</td>
+<td>ba07f9487a10ed278772d9571d6e867f53338029a3c4580eed2e08d8f5a8f9bd</td>
+</tr>
+<tr>
+<td>hxxps://xv[.]yxzgamen[.]com/logo.png</td>
+<td>db.dll</td>
+<td>ec01d244074f45d4f698f5713147e99d76053824a648b306e1debf69f3ba9ce6</td>
+</tr>
+</tbody>
+</table>
+<p>When downloading the png directly via a browser it will show as a valid png with the hash 13830185971b7e87231ba8b5e489c9b90bb67a3a59665af7ac47963a1a29afa2.
+This png looks like the Google logo: <img src="images/logo_picture.PNG" alt="logo"></p>
+<!-- raw HTML omitted -->
+<p>The executable checks that it was started with a parameter, if it was not started with one, it runs:
+ShellExecuteExW() of itself with the parameter -h and the verb &ldquo;runas&rdquo; to run the application as administrator.</p>
+<p><img src="images/shellexecute.PNG" alt="shellexecute"></p>
+<p>After this the download url strings are setup and a com object is created. Based on a <a href="https://gist.github.com/olafhartong/980e9cd51925ff06a5a3fdfb24fb96c2">gist</a> by Olaf Hartong this is a com object for http requests.</p>
+<ul>
+<li>{2087c2f4-2cef-4953-a8ab-66779b670495},CLSID WinHttpRequest Component version 5.1</li>
+<li>{016FE2EC-B2C8-45F8-B23B-39E53A75396B},IID IWinHttpRequest</li>
+</ul>
+<p>Via the function sub_0x401260, the files are downloaded into the users temp folder, while doing this a dll is extracted out of the png file. (Having a look how this is exactly done is maybe for a future update).</p>
+<p>Next the function sub_0x4016d0 is called, inside that function a second com object is created.</p>
+<ul>
+<li>{4590F811-1D3A-11D0-891F-00AA004B2E24},CLSID WBEM Locator</li>
+<li>dc12a687-737f-11cf-884d-00aa004b2e24 IID_IWbemLocator <a href="https://research.openanalysis.net/hermetic/hermetic%20wizard/spreader/malware/apt/2022/03/10/hermetic_wizard.html">found in an article from OALABS</a></li>
+</ul>
+<p><img src="images/comfile2.PNG" alt="second com file"></p>
+<p>The technique seems similar to what is described at <a href="https://evasions.checkpoint.com/techniques/wmi.html#escape-from-tracking">https://evasions.checkpoint.com/techniques/wmi.html#escape-from-tracking</a> and in the end executes:</p>
+<ul>
+<li>rundll32.exe &ldquo;db.dll&rdquo;,open</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="second-stage-ec01d244074f45d4f698f5713147e99d76053824a648b306e1debf69f3ba9ce6">Second stage (ec01d244074f45d4f698f5713147e99d76053824a648b306e1debf69f3ba9ce6)</h2>
+<p>This stage is started by calling the export &ldquo;open&rdquo;, this export and other exports lead to the main function. The dll will resolve some function calls and use those to allocate memory into which it decrypts part of the db.dat file from the previous stage. The shellcode in that memory section is used as the next stage. The shellcode that has been dumped from x64dbg is described in the next section.</p>
+<!-- raw HTML omitted -->
+<p>The previously allocated memory is passed to  the function at 0x100074f0  (int32_t mw_read_into_shellcode(char* <code>shellcode?</code>, int32_t* arg2, char* fileName)). In this function more functions will be resolved, this time the strings are slightly protected.
+In this function the referenced strings are obfuscated by using different values that are added or subtracted from them as in the following example. The string CreateFileW is created by using 4 DWORDS and subtracting 0x21435622 from each of them.</p>
+<p><img src="images/createfile1.PNG" alt="createfile1">
+<img src="images/createfile2.PNG" alt="createfile2"></p>
+<p>Like this multiple function names are decoded and their pointers are resolved. Here is part of the function shown at a decompiler level.
+<img src="images/read_dat.PNG" alt="part of read func"></p>
+<p>After resolving the functions, the size of the data will be read from the db.dat file, the data is then loaded into the shellcode memory area.</p>
+<p>The data is also decrypted during this process, this is something that I might look into closer at a later point, during this look at the sample, the final memory region was dumped and further analyzed in Binary Ninja.</p>
+<p>Once this function is done the shellcode will be called and continue as the next stage.</p>
+<!-- raw HTML omitted -->
+<h2 id="third-stage-72ab1eb5b342cada2c10e0005687cbbe5a0d7a58e6c772bc6e758d2899123a49">Third stage (72ab1eb5b342cada2c10e0005687cbbe5a0d7a58e6c772bc6e758d2899123a49)</h2>
+<p>This is a shellcode that is extracted from the html/dat file downloaded in stage 1 and is loaded into memory during the previous stage. This code extracts data from the process to load the final payload into memory.
+To do this it first decrypts part of the data with a simple xor key and afterwards resolved some hashed APIs to decompress more data. Finally that decompressed data is fixed into a PE file and imports for it are resolved. The final PE file is linked in the next section.</p>
+<!-- raw HTML omitted -->
+<p>All the addresses in here are with base 0x5025000 via a file dumped from x64dbg.
+<img src="images/base_and_entry_point.PNG" alt="binja load"></p>
+<p>Data layout for decryption / decompression:
+| memory section start + 0x88c |
+| &mdash;&mdash;&mdash;&mdash;- |
+| 4 byte size of encrypted area (starting after this DWORD)|
+| 4 bytes decompressed memory size (encrypted) |
+| buffer of size: encrypted aread - 4 bytes , this is later decompressed|</p>
+<p>The above offsets are used the decrypt a section of the memory section with the xor key 0x58.</p>
+<p><img src="images/decrypt.PNG" alt="decryption_func"></p>
+<p>Data at the offset in the file. (The next few screenshots are with a base address of 0x0.
+<img src="images/before_decrypt.PNG" alt="decrypt1"></p>
+<p>That data can be decrypted with the transformation function build into binja.</p>
+<p><img src="images/xor.PNG" alt="xor1">
+<img src="images/xor2.PNG" alt="xor2">
+<img src="images/decrypted_start.PNG" alt="decrypted"></p>
+<p>Afterwards the function at 0x50252d8 resolves some API hashes, with what looks like the Metasploit ror13 algorithm:
+<img src="images/hash_algo.PNG" alt="hash_algo"></p>
+<p>To resolve these functions the Binary Ninja <a href="https://hashdb.openanalysis.net/">hashdb</a> plugin <a href="https://github.com/cxiao/hashdb_bn">from cxiao was used</a>.</p>
+<p>A few screenshots of using hashdb in one of the functions.</p>
+<p><img src="images/hashdb_hunt_result.PNG" alt="hash_algo">
+<img src="images/hashdb_enum.PNG" alt="hash_algo"></p>
+<p>After the first functions were resolved the previously decrypted data is decompressed and what looks like a function to fix a PE file in memory is called:</p>
+<p><img src="images/stage3_main.PNG" alt="stage3_main">
+<img src="images/header_func.PNG" alt="stage3_main"></p>
+<p>This is my first time seeing the loading like this, I have to spend some more time to look into it and can maybe add more details later.
+At this point setting a breakpoint on RtlGetVersion kind of works. Clicking &ldquo;run to usercode&rdquo; after it is hit ends up inside the pe that was loaded into memory, so that is not ideal.</p>
+<!-- raw HTML omitted -->
+<h2 id="final-malware-9e4635cd52e27b5010d0562f17a25639628203fca8c887081c284828fac7cbce">Final malware (9e4635cd52e27b5010d0562f17a25639628203fca8c887081c284828fac7cbce)</h2>
+<p>This final stage looks like a proper trojan and I need to take a better look later on, it seems to have standard functionality like, copying from clipboard, network communication, audio functionality, etc. Not much time was spend on this and maybe I can add more data later on.</p>
+<!-- raw HTML omitted -->
+<p><img src="images/sections.PNG" alt="sections">
+<img src="images/imports.PNG" alt="imports">
+<img src="images/fixed_sections.PNG" alt="fixed_sections">
+<img src="images/fixed_imports.PNG" alt="fixed_imports"></p>
+<p>Looking at the strings there were two domains, one of which was also contacted in the VM-Ray report that is linked in the original Malware Bazaar link.</p>
+<table>
+<thead>
+<tr>
+<th>Domains found in strings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>g.agametog[.]com</td>
+</tr>
+<tr>
+<td>h.agametoh[.]com</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<h1 id="iocs">IOCs</h1>
+<table>
+<thead>
+<tr>
+<th>Urls / Domains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hxxps://xv[.]yxzgamen[.]com/29.html</td>
+</tr>
+<tr>
+<td>hxxps://xv[.]yxzgamen[.]com/logo.png</td>
+</tr>
+<tr>
+<td>g.agametog[.]com</td>
+</tr>
+<tr>
+<td>h.agametoh[.]com</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Filename</th>
+<th>SHA256 Hashes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original exe</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=c07e74c3367d7fada8618f94d8c73122f161ffe79eb4534bde78f57998b54813">c07e74c3367d7fada8618f94d8c73122f161ffe79eb4534bde78f57998b54813</a></td>
+</tr>
+<tr>
+<td>Second stage dll (extracted from png)</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=ec01d244074f45d4f698f5713147e99d76053824a648b306e1debf69f3ba9ce6">ec01d244074f45d4f698f5713147e99d76053824a648b306e1debf69f3ba9ce6</a></td>
+</tr>
+<tr>
+<td>Second stage dat / html</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=ba07f9487a10ed278772d9571d6e867f53338029a3c4580eed2e08d8f5a8f9bd">ba07f9487a10ed278772d9571d6e867f53338029a3c4580eed2e08d8f5a8f9bd</a></td>
+</tr>
+<tr>
+<td>Second stage png (only used to extract the dll in memory)</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=13830185971b7e87231ba8b5e489c9b90bb67a3a59665af7ac47963a1a29afa2">13830185971b7e87231ba8b5e489c9b90bb67a3a59665af7ac47963a1a29afa2</a></td>
+</tr>
+<tr>
+<td>Third stage (memory dump)</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=72ab1eb5b342cada2c10e0005687cbbe5a0d7a58e6c772bc6e758d2899123a49">72ab1eb5b342cada2c10e0005687cbbe5a0d7a58e6c772bc6e758d2899123a49</a></td>
+</tr>
+<tr>
+<td>Last Stage / Trojan dumped from memory</td>
+<td><a href="https://malshare.com/sample.php?action=detail&amp;hash=9e4635cd52e27b5010d0562f17a25639628203fca8c887081c284828fac7cbce">9e4635cd52e27b5010d0562f17a25639628203fca8c887081c284828fac7cbce</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  My New Hugo Site 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

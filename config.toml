@@ -1,0 +1,119 @@
+baseURL = "https://0x61616161.github.io"
+languageCode = "en-us"
+title = "reversing"
+theme = 'LoveIt'
+
+
+
+defaultContentLanguage = "en"
+languageName = "English"
+hasCJKLanguage = false
+paginate = 12
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
+
+
+[author]
+  name = "0x61616161"
+  link = "https://0x61616161.github.io"
+
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "posts"
+    pre = "<i class=\"fa-solid fa-square-pen\"></i>"
+    post = ""
+    name = ""
+    url = "/posts/"
+    title = "Blog"
+  [[menu.main]]
+    weight = 2
+    identifier = "tags"
+    pre = "<i class=\"fa-solid fa-tag\"></i>"
+    post = ""
+    name = ""
+    url = "/tags/"
+    title = "Tags"
+
+[params]
+  defaultTheme = "dark"
+  fingerprint = ""
+  dateFormat = "2006-01-02"
+  title = "reversing"
+  description = "Welcome"
+
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = ""
+      name = "reversing"
+      pre = "<i class='fa-solid fa-terminal' aria-hidden='true'></i>"
+      post = ""
+      typeit = true
+
+  [params.footer]
+    enable = true
+    custom = ""
+    hugo = false
+    copyright = true
+    author = true
+    since = 2023
+    icp = ""
+    license= '<a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a>'
+
+
+  [params.section]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.list]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.home]
+    rss = 10
+    [params.home.profile]
+      enable = true
+      gravatarEmail = ""
+      #avatarURL = "/images/image.jpg"
+      title = "0x61616161"
+      subtitle = "test"
+      typeit = true
+      social = true
+      disclaimer = ""
+    [params.home.posts]
+      enable = true
+      paginate = 6
+  [params.social]
+    GitHub         = "0x61616161"
+
+
+
+
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6

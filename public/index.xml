@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://example.org/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Jun 2023 03:16:48 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ManusCrypt</title>
+      <link>http://example.org/posts/manuscrypt/</link>
+      <pubDate>Thu, 01 Jun 2023 03:16:48 +0200</pubDate>
+      
+      <guid>http://example.org/posts/manuscrypt/</guid>
+      <description>ManusCrypt Based on Malware Bazaar this sample is ManusCrypt. The first part seems to be a dropper, overall the sample downloads two files and unpacks those in a multi step process. Based on the supplied sample this was downloaded from vk[.]com. The information regarding ManusCrypt seems limited, so it is hard to tell if this sample might really be ManusCrypt.
+ First stage: Uses com objects to download and execute files Second stage: Simple obfuscated strings to load functions and load shellcode from a previous file into memory Third stage: XOR decrypt some memory and load functions via hashes.</description>
+    </item>
+    
+  </channel>
+</rss>
