@@ -18,7 +18,7 @@ This page is for taking some basic notes about Yara.
 
 [Documentation](https://virustotal.github.io/yara/) can be found on the "read the docs" page.
 
-Example Yara file:
+Example YARA file:
 
 ``` 
 rule rule_name {
