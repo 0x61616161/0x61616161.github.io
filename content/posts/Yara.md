@@ -1,6 +1,6 @@
 ---
-title: "Yara basics"
-date: 2024-05-24T01:16:48+02:00
+title: "YARA basics"
+date: 2024-05-24T01:45:48+02:00
 draft: false
 description: "some yara notes"
 author: "0x61616161"
@@ -8,7 +8,7 @@ tags: [ "yara", "notes"]
 categories: ["notes"]
 ---
 
-# Yara
+# YARA
 
 This page is for taking some basic notes about Yara.
 
