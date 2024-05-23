@@ -3,7 +3,9 @@ title: "Yara basics"
 date: 2024-05-24T01:16:48+02:00
 draft: false
 description: "some yara notes"
-tags:[ "yara", "notes"]
+author: "0x61616161"
+tags: [ "yara", "notes"]
+categories: ["notes"]
 ---
 
 # Yara
