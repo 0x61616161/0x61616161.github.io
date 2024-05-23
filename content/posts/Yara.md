@@ -1,7 +1,9 @@
 ---
 title: "Yara basics"
-date: 2024-05-24T03:16:48+02:00
+date: 2024-05-24T01:16:48+02:00
 draft: false
+description: "some yara notes"
+tags:[ "yara", "notes"]
 ---
 
 # Yara
@@ -52,9 +54,9 @@ Example keywords:
 - hash/md5/sha512...
 
 ## strings
-In this section variables that represent strings can be defined.
+In this section, variables that represent strings can be defined.
 Strings can be used in the conditions for matching.
-Strings can have modifiers like, **nocase**(not case sensitive) or **wide** (unicode).
+Strings can have modifiers like **nocase**(not case sensitive) or **wide** (unicode).
 These variables can be normal strings or hex values. Furthermore, it is possible to use placeholders / regex.
 
 Example keywords:
