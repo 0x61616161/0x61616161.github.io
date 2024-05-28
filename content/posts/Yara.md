@@ -44,7 +44,8 @@ condition:
     ((uint16(0) == 0x5A4D)) and (filesize < 100000) and ((any of ($a*)))
 }
 ```
-## meta
+## file sections
+### meta
 The meta section is optional and used for metadata. This is basically free text.
 
 Example keywords:
@@ -57,7 +58,7 @@ Example keywords:
 - reference
 - hash/md5/sha512...
 
-## strings
+### strings
 In this section, variables that represent strings can be defined.
 Strings can be used in the conditions for matching.
 Strings can have modifiers like **nocase**(not case sensitive) or **wide** (unicode).
@@ -69,11 +70,11 @@ Example keywords:
 - nocase
 - xor
 
-## condition
+### condition
 Condition to match files against, this might use the strings defined in the strings section.
 
 
-Uses one YARA file (with potentially multiple rules inside) to match against file(s).
+When executed, yara uses one YARA file (with potentially multiple rules inside) to match against file(s).
 
 If condition uses $a* to match against all string variables starting with "$a", it needs to be enclosed in (), so it will be 
 ```
