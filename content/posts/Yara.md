@@ -11,7 +11,6 @@ categories: ["notes"]
 ---
 
 # YARA
-
 This page is for taking some basic notes about Yara.
 
 
