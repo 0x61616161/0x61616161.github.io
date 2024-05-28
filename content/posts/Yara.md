@@ -1,6 +1,8 @@
 ---
 title: "YARA basics"
+subtitle: "some YARA notes"
 date: 2024-05-24T01:45:48+02:00
+lastmod: 2024-05-28T02:45:48+02:00
 draft: false
 description: "some yara notes"
 author: "0x61616161"
