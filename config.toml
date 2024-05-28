@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "reversing"
 theme = 'LoveIt'
 
+# Google Analytics 4
+#GoogleAnalyticsID = "G-00000XXXXX"
+#analytics.google.id = ""
+#googleAnalytics = ""
 
 
 defaultContentLanguage = "en"
@@ -91,6 +95,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       paginate = 6
   [params.social]
     GitHub         = "0x61616161"
+
+  [params.analytics]
+    enable = true
+    [params.analytics.google]
+      id = "G-3JTMF3KNKN"
 
 
 
