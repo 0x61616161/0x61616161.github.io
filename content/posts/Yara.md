@@ -18,6 +18,8 @@ This page is for taking some basic notes about Yara.
 
 [Documentation](https://virustotal.github.io/yara/) can be found on the "read the docs" page.
 
+[Online YARA validator](https://yaravalidator.manalyzer.org/)
+
 Example YARA file:
 
 ``` 
@@ -69,3 +71,11 @@ Example keywords:
 
 ## condition
 Condition to match files against, this might use the strings defined in the strings section.
+
+
+Uses one YARA file (with potentially multiple rules inside) to match against file(s).
+
+If condition uses $a* to match against all string variables starting with "$a", it needs to be enclosed in (), so it will be 
+```
+($a*)
+```
