@@ -62,7 +62,7 @@ Example keywords:
 ### strings
 In this section, variables that represent strings can be defined.
 Strings can be used in the conditions for matching.
-Strings can have modifiers like **nocase**(not case sensitive) or **wide** (unicode).
+Strings can have modifiers like **nocase**(not case-sensitive) or **wide** (unicode).
 These variables can be normal strings or hex values. Furthermore, it is possible to use placeholders / regex.
 
 Example keywords:
@@ -81,3 +81,16 @@ If condition uses $a* to match against all string variables starting with "$a", 
 ```
 ($a*)
 ```
+
+## Wildcards
+
+
+
+## YARA modules
+
+## Efficiency
+
+## Example conditions
+
+
+
