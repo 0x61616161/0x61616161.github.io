@@ -93,4 +93,10 @@ If condition uses $a* to match against all string variables starting with "$a", 
 ## Example conditions
 
 
+## Places to use yara
 
+- local
+- VT
+- sandboxes
+- [unpac.me](https://unpac.me)
+- Kasperky [klara](https://github.com/KasperskyLab/klara)
