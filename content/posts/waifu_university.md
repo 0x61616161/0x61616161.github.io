@@ -60,20 +60,101 @@ Personally, I had a bit of a harder than expected start here, which is likely la
 I unzipped the existing images, loaded them and took a look around. 
 
 I assume there is a better way to do this with some kind of tool.
-
+![triageimages.png](xintra/waifu_university/scoping_the_incident/triageimages.png)
 ### Question 1
 
 What was the domain the threat actor has requested the victim to visit in order to further communications?
 
+![ransom_note.png](xintra/waifu_university/scoping_the_incident/ransom_note.png)
 
+As can be seen in the note the ransom domain is an onion domain: `rfosusl6qdm4zhoqbqnjxaloprld2qz35u77h4aap46rhwkouejsooqd[.]onion`
 
 ### Question 2
 
 What was the file name of the ransom note left behind by the ransomware?
 
+![important_files.png](xintra/waifu_university/scoping_the_incident/important_files.png)
+
+`RECOVER-kh1ftzx-FILES.txt`
+
 ### Question 3
 
 What was the file extension the ransomware added to encrypted files?
+
+`.kh1ftzx`
+
+
+## Initial Access via Entra ID
+
+### Question 1
+
+Our security team mentioned that there was a number of failed logons to the victims Identity Provider (Entra ID).
+
+What was the full user agent string that was responsible for these attempts?
+
+This is not the useragent with the most failed logins, 
+
+`Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36`
+
+
+
+
+### Question 2
+
+What was the cloud provider the threat actor used to proxy their requests? Please use the acronym.
+
+Example: GCP
+
+Two random source.ip(s) for the login events
+* 3.15.36.21
+* 3.12.219.51
+
+both belong to Amazon, so the answer is AWS.
+
+### Question 3
+
+How many unique users did the threat actor attempt to authenticate with?
+
+![user_display_names.png](xintra/waifu_university/initial_access_via_entra_id/user_display_names.png)
+
+8
+
+### Question 4
+
+What was the User Principal Name (UPN) of the user the threat actor succeeded in accessing?
+
+Format: egirl@waifu.phd
+
+
+
+
+
+### Question 5
+
+What was the most likely method the threat actor was able to authenticate to the VPN that was protected by MFA?
+
+1. [X] MFA push fatigue
+2. [ ] Session Hijacking
+3. [ ] SIM Hacking
+4. [ ] App Consent
+
+
+### Question 6
+
+What was the IP that successfully logged into the environment?
+
+
+
+
+### Question 7 
+
+What was the SSH fingerprint for the IP?
+
+Note: Make sure to look for historical info around the time of the intrusion as IP addresses may frequently change owners.
+
+Format: ab:cd:ef:12:34:56:78:90:ab:cd:ef:12:34:56:78:90
+
+
 
 
 
