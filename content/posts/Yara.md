@@ -72,7 +72,7 @@ Example keywords:
 - xor
 
 ### condition
-Condition to match files against, this might use the strings defined in the strings section.
+The condition to match files against, this might use the strings defined in the strings section.
 
 
 When executed, yara uses one YARA file (with potentially multiple rules inside) to match against file(s).
