@@ -57,7 +57,7 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Upload artifact
+      - name: Upload static files as artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
