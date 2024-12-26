@@ -18,9 +18,13 @@ Recently I discovered Xintra labs (I believe it was some black friday discount c
 
 They have a number of APT labs by now and seem to release new labs regularly.
 
+During the trial period three labs are accessible, one of each difficulty.
+
 For starting out, I will try this "beginner" lab.
 
 ![labview.png](xintra/labview.png)
+
+For this lab, the user gets a Windows VM that contains data related to the investigation and access to an ELK stack with logs.
 
 The lab is split into a number of subsections for the different topics.
 ![lab_structure.png](xintra/waifu_university/lab_structure.png)
