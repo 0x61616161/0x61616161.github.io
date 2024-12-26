@@ -152,7 +152,9 @@ Maybe add hints somewhere for personal
 
 > What was the IP that successfully logged into the environment?
 
+207.246.70.192
 
+![sourceip.png](xintra/waifu_university/initial_access_via_entra_id/sourceip.png)
 
 
 ### Question 7 
@@ -163,6 +165,31 @@ Maybe add hints somewhere for personal
 >
 > Format: ab:cd:ef:12:34:56:78:90:ab:cd:ef:12:34:56:78:90
 
+
+## Breaching the University
+
+### Question 1
+> What was the hostname the threat actor was able to first access once in the network (also known as the beachhead host)?
+
+
+### Question 2
+> What was the hostname of the threat actor's device used to get into the network?
+
+
+### Question 3
+> What did the threat actor search for via a Web Browser from the initial beachhead host?
+
+
+### Question 4
+> The initial compromised user created a PowerShell process on the beachhead host. What domain did the process make a DNS query for?
+>
+> Format: domain.com (do not include subdomains)
+
+
+### Question 5
+> What was the Github repo URL the threat actor downloaded a tool from on the beachhead host?
+>
+> Format: https://github.com/username/repository
 
 
 
