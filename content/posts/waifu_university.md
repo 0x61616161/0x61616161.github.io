@@ -130,8 +130,12 @@ both belong to Amazon, so the answer is AWS.
 >
 > Format: egirl@waifu.phd
 
+ivanderplas1@waifu.phd
+
+![login.png](xintra/waifu_university/initial_access_via_entra_id/login.png)
 
 
+Maybe add hints somewhere for personal
 
 
 ### Question 5
