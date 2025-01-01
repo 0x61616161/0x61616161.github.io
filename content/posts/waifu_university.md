@@ -58,6 +58,18 @@ The Waifu University team took triage collections from the affected hosts using 
 
 ![network_diagram.png](xintra/waifu_university/network_diagram.png)
 
+## Timeline
+
+This incident took place in early March 2024.
+
+maybe mitre or kill chain based
+
+### Initial access
+
+### Lateral movement
+
+### Exfilatration
+
 ## Scoping the incident
 
 Personally, I had a bit of a harder than expected start here, which is likely lack of experience. In the end, 
@@ -196,4 +208,8 @@ Maybe add hints somewhere for personal
 
 
 
+
+
+
+## IOCs
 
